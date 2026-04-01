@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SavorIt – Edit Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="edit-profile.css">
+  <link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo"><strong>Savor</strong><em>It</em></a>
+    <a href="login.html" class="nav-right">My Kitchen</a>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="edit-wrapper">
+    <h1>Edit profile</h1>
+
+    <!-- Avatar -->
+    <div class="avatar-section">
+      <div class="avatar-circle" onclick="document.getElementById('avatarInput').click()">
+        <img id="avatarPreview" src="https://placehold.co/150x150/8b0000/f9f740?text=+" alt="Profile photo">
+      </div>
+      <input type="file" id="avatarInput" accept="image/*" onchange="previewAvatar(event)">
+      <button class="btn-dark" onclick="document.getElementById('avatarInput').click()">Change photo</button>
+    </div>
+
+    <!-- Form -->
+    <div class="form-group">
+      <label for="loginField">Mobile number, username or email</label>
+      <input type="text" id="loginField" placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="passwordField">Password</label>
+      <input type="password" id="passwordField" placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="nameField">Name</label>
+      <input type="text" id="nameField" placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="usernameField">Username</label>
+      <input type="text" id="usernameField" placeholder="">
+    </div>
+
+    <div class="form-group">
+      <label for="bioField">Bio</label>
+      <input type="text" id="bioField" placeholder="">
+    </div>
+
+    <button class="btn-save">Save</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div class="brand-title">Savor<em>It</em></div>
+      <p>Find your next favourite recipe.<br>Then share it with the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Discover recipes</li>
+        <li>Today's ingredient</li>
+        <li>Trending now</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>My Kitchen</h4>
+      <ul>
+        <li>Profile</li>
+        <li>Following</li>
+        <li>My cookbooks</li>
+        <li>Saved recipes</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function previewAvatar(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('avatarPreview').src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+
+
+  <!-- ACCESSIBILITY PANEL -->
+  <button id="a11y-toggle" aria-label="Obrir opcions d'accessibilitat" aria-expanded="false" aria-controls="a11y-panel">Aa</button>
+  <div id="a11y-panel" role="dialog" aria-label="Opcions d'accessibilitat" aria-modal="false">
+    <h3>Accessibilitat</h3>
+    <div class="a11y-row">
+      <label for="a11y-bg">Color de fons</label>
+      <input type="color" id="a11y-bg" value="#F5F033" aria-label="Seleccionar color de fons">
+    </div>
+    <div class="a11y-row">
+      <label for="a11y-tx">Color de text</label>
+      <input type="color" id="a11y-tx" value="#4b4700" aria-label="Seleccionar color de text">
+    </div>
+    <button id="a11y-reset">Restaurar per defecte</button>
+  </div>
+  <script src="accessibility.js"></script>
+
+</body>
+</html>

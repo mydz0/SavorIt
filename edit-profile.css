@@ -1,0 +1,270 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --yellow: #F5F033;
+    --dark-yellow: #c8b800;
+    --olive: #4b4700;
+    --white: #fff;
+    --black: #111;
+    --border: 1px solid #c8b800;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background: var(--yellow);
+    color: var(--olive);
+    font-family: 'Space Mono', monospace;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ── NAV ──────────────────────────────────────────────── */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 48px;
+    background: var(--yellow);
+    border-bottom: var(--border);
+}
+
+.nav-logo {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--olive);
+    text-decoration: none;
+}
+
+.nav-logo em {
+    font-style: italic;
+    font-weight: 700;
+}
+
+.nav-right {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 0.80rem;
+    letter-spacing: 0.03em;
+    color: var(--olive);
+}
+
+.nav-right:hover {
+    text-decoration: underline;
+}
+
+/* ── MAIN ── */
+.edit-wrapper {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 100px 40px 100px;
+}
+
+h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--olive);
+}
+
+/* Avatar */
+.avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 46px;
+}
+
+.avatar-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--dark-yellow);
+    overflow: hidden;
+    margin-bottom: 14px;
+    cursor: pointer;
+}
+
+.avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.btn-dark {
+    background: var(--olive);
+    color: var(--yellow);
+    border: none;
+    padding: 8px 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    cursor: pointer;
+}
+
+.btn-dark:hover {
+    opacity: 0.85;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.72rem;
+    margin-bottom: 6px;
+    color: var(--olive);
+}
+
+.form-group input {
+    width: 100%;
+    background: var(--yellow);
+    border: 1.5px solid var(--dark-yellow);
+    padding: 10px 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--olive);
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: rgba(90, 82, 0, 0.4);
+}
+
+.form-group input:focus {
+    border-color: var(--olive);
+}
+
+.btn-save {
+    background: var(--olive);
+    color: var(--yellow);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.btn-save:hover {
+    opacity: 0.85;
+}
+
+/* ── FOOTER ── */
+footer {
+    border-top: var(--border);
+    padding: 3.5rem 2.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-brand .brand-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--olive);
+}
+
+.footer-brand .brand-title em {
+    font-style: italic;
+}
+
+.footer-brand p {
+    font-size: 0.65rem;
+    line-height: 1.7;
+    opacity: .75;
+    max-width: 220px;
+    color: var(--olive);
+}
+
+.footer-col h4 {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.80rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--olive);
+    margin-bottom: .9rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    font-size: 0.65rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: var(--olive);
+    opacity: .7;
+    transition: opacity .2s;
+}
+
+.footer-col li:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 1.2rem;
+        height: 44px;
+    }
+
+    .edit-wrapper {
+        padding: 64px 16px 60px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 28px;
+    }
+
+    .avatar-circle {
+        width: 110px;
+        height: 110px;
+    }
+
+    footer {
+        padding: 2.5rem 1.2rem 2rem;
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .edit-wrapper {
+        padding: 80px 30px 80px;
+    }
+
+    footer {
+        padding: 40px 30px;
+    }
+}

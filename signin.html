@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SavorIt – Sign in</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="signin.css">
+  <link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- LEFT: Brand -->
+    <div class="brand">
+      <h1>Savor<em>It</em></h1>
+      <p>Find your next favourite recipe.<br>Then share it with the world.</p>
+    </div>
+
+    <!-- RIGHT: Sign in form -->
+    <div class="form-panel">
+      <h2>Sign in</h2>
+
+      <div class="field">
+        <label for="si-id">Mobile number, username or email</label>
+        <input type="text" id="si-id" name="login-id" autocomplete="username"/>
+      </div>
+
+      <div class="field">
+        <label for="si-pw">Password</label>
+        <input type="password" id="si-pw" name="password" autocomplete="new-password"/>
+      </div>
+
+      <div class="field">
+        <label>Date of birth</label>
+        <div class="dob-row">
+          <div class="select-wrap">
+            <select name="dob-day">
+              <option value="">Day</option>
+              <script>for(let i=1;i<=31;i++) document.write(`<option>${i}</option>`);</script>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select name="dob-month">
+              <option value="">Month</option>
+              <option>January</option><option>February</option><option>March</option>
+              <option>April</option><option>May</option><option>June</option>
+              <option>July</option><option>August</option><option>September</option>
+              <option>October</option><option>November</option><option>December</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select name="dob-year" id="dob-year"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="si-name">Name</label>
+        <input type="text" id="si-name" name="name" autocomplete="name"/>
+      </div>
+
+      <div class="field">
+        <label for="si-user">Username</label>
+        <input type="text" id="si-user" name="username" autocomplete="off"/>
+      </div>
+
+      <div class="legal">
+        <p>People who use our service may have uploaded your contact information to SavorIt.</p>
+        <p>By tapping Submit, you agree to create an account and to SavorIt's Terms. Learn how we collect, use and share your data in our <a href="#">Privacy Policy</a> and how we use cookies and similar technology in our <a href="#">Cookies Policy</a>.</p>
+        <p>The Privacy Policy describes the ways we can use the information we collect when you create an account. For example, we use this information to provide, personalise and improve our products, including ads.</p>
+      </div>
+
+      <button class="btn-submit" type="button">Submit</button>
+
+      <div class="switch-auth">
+        Already have an account?
+        <a href="login.html">Log in</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <span class="logo">Savor<em>It</em></span>
+      <p>Find your next favourite recipe.<br>Then share it with the world.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">Discover recipes</a></li>
+        <li><a href="#">Today's ingredient</a></li>
+        <li><a href="#">Trending now</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>My Kitchen</h4>
+      <ul>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Following</a></li>
+        <li><a href="#">My cookbooks</a></li>
+        <li><a href="#">Saved recipes</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Populate year dropdown
+  const yearSel = document.getElementById('dob-year');
+  const opt0 = document.createElement('option');
+  opt0.value = ''; opt0.textContent = 'Year';
+  yearSel.appendChild(opt0);
+  const currentYear = new Date().getFullYear();
+  for (let y = currentYear; y >= 1900; y--) {
+    const opt = document.createElement('option');
+    opt.value = y; opt.textContent = y;
+    yearSel.appendChild(opt);
+  }
+</script>
+
+  <!-- ACCESSIBILITY PANEL -->
+  <button id="a11y-toggle" aria-label="Obrir opcions d'accessibilitat" aria-expanded="false" aria-controls="a11y-panel">Aa</button>
+  <div id="a11y-panel" role="dialog" aria-label="Opcions d'accessibilitat" aria-modal="false">
+    <h3>Accessibilitat</h3>
+    <div class="a11y-row">
+      <label for="a11y-bg">Color de fons</label>
+      <input type="color" id="a11y-bg" value="#F5F033" aria-label="Seleccionar color de fons">
+    </div>
+    <div class="a11y-row">
+      <label for="a11y-tx">Color de text</label>
+      <input type="color" id="a11y-tx" value="#4b4700" aria-label="Seleccionar color de text">
+    </div>
+    <button id="a11y-reset">Restaurar per defecte</button>
+  </div>
+  <script src="accessibility.js"></script>
+
+</body>
+</html>

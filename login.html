@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SavorIt – Log in</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- LEFT: Brand -->
+    <div class="brand">
+      <h1>Savor<em>It</em></h1>
+      <p>Find your next favourite recipe.<br>Then share it with the world.</p>
+    </div>
+
+    <!-- RIGHT: Log in form -->
+    <div class="form-panel">
+      <h2>Log in</h2>
+
+      <div class="field">
+        <label for="login-id">Mobile number, username or email</label>
+        <input type="text" id="login-id" name="login-id" autocomplete="username"/>
+      </div>
+
+      <div class="field">
+        <label for="login-pw">Password</label>
+        <input type="password" id="login-pw" name="password" autocomplete="current-password"/>
+        <a href="#" class="forgot">Forgot password?</a>
+      </div>
+
+      <button class="btn-submit" type="button">Log in</button>
+
+      <div class="switch-auth">
+        Don't have an account?
+        <a href="signin.html">Sign in</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <span class="logo">Savor<em>It</em></span>
+      <p>Find your next favourite recipe.<br>Then share it with the world.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">Discover recipes</a></li>
+        <li><a href="#">Today's ingredient</a></li>
+        <li><a href="#">Trending now</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>My Kitchen</h4>
+      <ul>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Following</a></li>
+        <li><a href="#">My cookbooks</a></li>
+        <li><a href="#">Saved recipes</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</div>
+
+  <!-- ACCESSIBILITY PANEL -->
+  <button id="a11y-toggle" aria-label="Obrir opcions d'accessibilitat" aria-expanded="false" aria-controls="a11y-panel">Aa</button>
+  <div id="a11y-panel" role="dialog" aria-label="Opcions d'accessibilitat" aria-modal="false">
+    <h3>Accessibilitat</h3>
+    <div class="a11y-row">
+      <label for="a11y-bg">Color de fons</label>
+      <input type="color" id="a11y-bg" value="#F5F033" aria-label="Seleccionar color de fons">
+    </div>
+    <div class="a11y-row">
+      <label for="a11y-tx">Color de text</label>
+      <input type="color" id="a11y-tx" value="#4b4700" aria-label="Seleccionar color de text">
+    </div>
+    <button id="a11y-reset">Restaurar per defecte</button>
+  </div>
+  <script src="accessibility.js"></script>
+
+</body>
+</html>

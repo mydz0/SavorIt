@@ -1,0 +1,165 @@
+/* ── ACCESSIBILITY OVERRIDES ──────────────────────────── */
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+    outline: 3px solid #4b4700;
+    outline-offset: 3px;
+}
+
+[role="button"]:focus-visible {
+    outline: 3px solid #4b4700;
+    outline-offset: 3px;
+}
+
+/* ── COLOR PICKER PANEL ───────────────────────────────── */
+#a11y-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    background: #4b4700;
+    color: #F5F033;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    font-family: 'Space Mono', monospace;
+}
+
+#a11y-toggle:focus-visible {
+    outline: 3px solid #F5F033;
+    outline-offset: 3px;
+}
+
+#a11y-panel {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 1.5rem;
+    z-index: 9998;
+    background: #fff;
+    border: 1.5px solid #4b4700;
+    border-radius: 4px;
+    padding: 1.2rem 1.4rem;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 220px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: #4b4700;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+#a11y-panel.open {
+    display: flex;
+}
+
+#a11y-panel h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 .2rem;
+    color: #4b4700;
+}
+
+.a11y-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8rem;
+}
+
+.a11y-row label {
+    font-size: 0.70rem;
+    color: #4b4700;
+}
+
+.a11y-row input[type="color"] {
+    width: 36px;
+    height: 28px;
+    border: 1px solid #4b4700;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+}
+
+#a11y-reset {
+    background: #4b4700;
+    color: #F5F033;
+    border: none;
+    padding: 6px 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: .2rem;
+}
+
+#a11y-reset:hover { opacity: .85; }
+
+/* ── VIDEO TRANSCRIPT ─────────────────────────────────── */
+.video-transcript {
+    margin-top: 1.2rem;
+    border: 1px solid #c8b800;
+    border-radius: 2px;
+}
+
+.transcript-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .65rem 1rem;
+    background: #F5F033;
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.70rem;
+    font-weight: 700;
+    color: #4b4700;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.transcript-toggle:focus-visible {
+    outline: 3px solid #4b4700;
+    outline-offset: 2px;
+}
+
+.transcript-toggle .t-arrow {
+    font-size: .8rem;
+    transition: transform .2s;
+}
+
+.transcript-toggle[aria-expanded="true"] .t-arrow {
+    transform: rotate(180deg);
+}
+
+.transcript-body {
+    display: none;
+    padding: 1rem;
+    font-size: 0.70rem;
+    line-height: 1.8;
+    color: #4b4700;
+    background: #fff;
+}
+
+.transcript-body.open {
+    display: block;
+}
+
+.transcript-body p { margin: 0 0 .5rem; }
+
+.transcript-lang-note {
+    font-size: 0.65rem;
+    color: #4b4700;
+    opacity: .75;
+    margin-top: .5rem;
+    font-style: italic;
+}

@@ -1,0 +1,458 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --yellow: #F5F033;
+    --dark-yellow: #c8b800;
+    --olive: #4b4700;
+    --white: #fff;
+    --black: #111;
+    --border: 1px solid #c8b800;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background: var(--yellow);
+    color: var(--olive);
+    font-family: 'Space Mono', monospace;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ── NAV ──────────────────────────────────────────────── */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 48px;
+    background: var(--yellow);
+    border-bottom: var(--border);
+}
+
+.nav-logo {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--olive);
+    text-decoration: none;
+}
+
+.nav-logo em {
+    font-style: italic;
+    font-weight: 700;
+}
+
+.nav-center {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    font-size: 0.80rem;
+    letter-spacing: 0.03em;
+}
+
+.nav-center li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-center li+li::before {
+    content: '•';
+    margin: 0 8px;
+}
+
+.nav-center a {
+    color: var(--olive);
+    transition: opacity .2s;
+}
+
+.nav-center a:hover {
+    text-decoration: underline;
+}
+
+.nav-right {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 0.80rem;
+    letter-spacing: 0.03em;
+    color: var(--olive);
+}
+
+.nav-right:hover {
+    text-decoration: underline;
+}
+
+/* ── HERO ── */
+.hero {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 48px);
+    min-height: 480px;
+    max-height: 860px;
+    overflow: hidden;
+    margin-top: 48px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+.hero-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, var(--yellow) 0%, var(--dark-yellow) 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 2rem 6vh;
+    text-align: center;
+    background: none;
+}
+
+.hero-overlay h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(2.6rem, 5.5vw, 5rem);
+    font-weight: 700;
+    color: #7a1a10;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+    text-shadow: none;
+}
+
+.hero-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(0.58rem, 0.9vw, 0.70rem);
+    color: #7a1a10;
+    text-align: center;
+    line-height: 2;
+}
+
+.hero-badge {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    background: rgba(245, 240, 51, 0.88);
+    padding: 4px 10px;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--olive);
+}
+
+/* ── BODY ── */
+.event-body {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 50px 24px;
+}
+
+.section-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    text-align: center;
+    margin-bottom: 28px;
+    color: var(--olive);
+}
+
+.ingredients-list {
+    list-style: none;
+    text-align: center;
+    font-size: 0.78rem;
+    line-height: 2.2;
+    margin-bottom: 50px;
+    color: var(--olive);
+}
+
+.steps-list {
+    list-style: none;
+    font-size: 0.78rem;
+    line-height: 2;
+    margin-bottom: 50px;
+    counter-reset: step;
+    color: var(--olive);
+}
+
+.steps-list li {
+    counter-increment: step;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.steps-list li::before {
+    content: counter(step) ". ";
+}
+
+/* ── COOK ALONG ── */
+.cook-along {
+    padding: 0 24px 50px;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.cook-along .section-title {
+    margin-bottom: 22px;
+}
+
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* ── RELATED ── */
+.related-section {
+    border-top: var(--border);
+    border-bottom: var(--border);
+    display: grid;
+    grid-template-columns: 72px 1fr 1fr 72px;
+}
+
+.related-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.related-nav.left {
+    border-right: var(--border);
+}
+
+.related-nav.right {
+    border-left: var(--border);
+}
+
+.related-nav:hover {
+    background: var(--dark-yellow);
+    opacity: .4;
+}
+
+.related-card {
+    padding: 20px 18px;
+    min-height: 180px;
+    border-right: var(--border);
+}
+
+.related-card:last-of-type {
+    border-right: none;
+}
+
+.related-card .r-num {
+    font-size: 0.65rem;
+    margin-bottom: 2px;
+    color: var(--olive);
+}
+
+.related-card .r-author {
+    font-size: 0.65rem;
+    margin-bottom: 10px;
+    color: var(--olive);
+}
+
+.related-card .r-name {
+    font-size: 0.78rem;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    color: var(--olive);
+}
+
+.related-card .r-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.related-card .r-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--dark-yellow);
+}
+
+/* ── FOOTER ── */
+footer {
+    border-top: var(--border);
+    padding: 3.5rem 2.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-brand .brand-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: .6rem;
+    color: var(--olive);
+}
+
+.footer-brand .brand-title em {
+    font-style: italic;
+}
+
+.footer-brand p {
+    font-size: 0.65rem;
+    line-height: 1.7;
+    opacity: .75;
+    max-width: 220px;
+    color: var(--olive);
+}
+
+.footer-col h4 {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.80rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--olive);
+    margin-bottom: .9rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    font-size: 0.65rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: var(--olive);
+    opacity: .7;
+    transition: opacity .2s;
+}
+
+.footer-col li:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 799px) {
+    nav {
+        padding: 0 1.2rem;
+        height: 44px;
+    }
+
+    .nav-center {
+        display: none;
+    }
+
+    .hero {
+        height: calc(100vh - 44px);
+        min-height: 400px;
+        max-height: 700px;
+        margin-top: 44px;
+    }
+
+    .hero-overlay {
+        padding: 0 1.4rem 5vh;
+    }
+
+    .hero-overlay h1 {
+        font-size: clamp(2.2rem, 9vw, 3.2rem);
+    }
+
+    .hero-meta {
+        font-size: 0.6rem;
+    }
+
+    .event-body {
+        padding: 36px 16px;
+    }
+
+    .cook-along {
+        padding: 0 16px 36px;
+    }
+
+    .related-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .related-nav {
+        height: 52px;
+        border: none;
+        border-top: var(--border);
+    }
+
+    .related-nav.left {
+        order: 3;
+    }
+
+    .related-nav.right {
+        order: 4;
+    }
+
+    .related-card {
+        border-right: none;
+        border-top: var(--border);
+    }
+
+    footer {
+        padding: 2.5rem 1.2rem 2rem;
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1279px) {
+    .hero {
+        height: calc(100vh - 48px);
+        min-height: 480px;
+    }
+
+    .hero-overlay {
+        padding: 0 2rem 5vh;
+    }
+
+    .hero-overlay h1 {
+        font-size: clamp(2.6rem, 5vw, 3.8rem);
+    }
+
+    footer {
+        padding: 40px 30px;
+    }
+}

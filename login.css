@@ -1,0 +1,305 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --yellow: #F5F033;
+    --dark-yellow: #c8b800;
+    --olive: #4b4700;
+    --white: #fff;
+    --black: #111;
+    --border: 1px solid #c8b800;
+}
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    min-height: 100%;
+    background: var(--yellow);
+    font-family: 'Space Mono', monospace;
+    color: var(--olive);
+}
+
+a {
+    color: var(--olive);
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: .7;
+}
+
+/* ── PAGE LAYOUT ─────────────────────────────────────── */
+.page-wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    padding: 5rem 6rem 4rem;
+    gap: 2rem;
+}
+
+/* ── LEFT BRAND ──────────────────────────────────────── */
+.brand h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 700;
+    color: var(--olive);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+}
+
+.brand h1 em {
+    font-style: italic;
+}
+
+.brand p {
+    font-size: 0.78rem;
+    line-height: 1.8;
+    color: var(--olive);
+}
+
+/* ── FORM PANEL ──────────────────────────────────────── */
+.form-panel {
+    padding-top: .4rem;
+}
+
+.form-panel h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 400;
+    color: var(--olive);
+    margin-bottom: 1.8rem;
+}
+
+.field {
+    margin-bottom: 1.4rem;
+}
+
+.field label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: .02em;
+    color: var(--olive);
+    margin-bottom: .5rem;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    background: var(--yellow);
+    border: var(--border);
+    padding: .7rem .9rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--olive);
+    outline: none;
+    transition: border-color .2s, background .2s;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.field input:focus,
+.field select:focus {
+    background: #ece900;
+    border-color: var(--olive);
+}
+
+.forgot {
+    display: block;
+    font-size: 0.65rem;
+    margin-top: .5rem;
+    color: var(--olive);
+    text-decoration: none;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+.btn-submit {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: .75rem 2rem;
+    background: var(--olive);
+    color: var(--yellow);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    border: none;
+    cursor: pointer;
+    letter-spacing: .04em;
+    transition: opacity .2s;
+}
+
+.btn-submit:hover {
+    opacity: .85;
+}
+
+.switch-auth {
+    margin-top: 1.4rem;
+    font-size: 0.65rem;
+    line-height: 1.8;
+    color: var(--olive);
+}
+
+.switch-auth a {
+    display: block;
+    text-decoration: underline;
+}
+
+/* ── DOB ROW ─────────────────────────────────────────── */
+.dob-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .8rem;
+}
+
+.select-wrap {
+    position: relative;
+}
+
+.select-wrap select {
+    width: 100%;
+    padding-right: 2rem;
+    cursor: pointer;
+}
+
+.select-wrap::after {
+    content: '∨';
+    position: absolute;
+    right: .7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: .7rem;
+    color: var(--olive);
+}
+
+/* ── LEGAL TEXT ──────────────────────────────────────── */
+.legal {
+    font-size: 0.6rem;
+    line-height: 1.65;
+    color: var(--olive);
+    margin-bottom: 1.4rem;
+}
+
+.legal p {
+    margin-bottom: .5rem;
+}
+
+.legal a {
+    text-decoration: underline;
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer {
+    border-top: var(--border);
+    padding: 3.5rem 2.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-brand .logo {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--olive);
+    display: block;
+    margin-bottom: .6rem;
+}
+
+.footer-brand p {
+    font-size: 0.65rem;
+    line-height: 1.7;
+    opacity: .75;
+    max-width: 220px;
+    color: var(--olive);
+}
+
+.footer-col h4 {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.80rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--olive);
+    margin-bottom: .9rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+}
+
+.footer-col ul li a {
+    font-size: 0.65rem;
+    color: var(--olive);
+    opacity: .7;
+    transition: opacity .2s;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+}
+
+/* ── RESPONSIVE: TABLET (≤ 800px) ────────────────────── */
+@media (max-width: 800px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        padding: 4rem 3rem 3rem;
+        text-align: center;
+    }
+
+    .brand h1 {
+        font-size: clamp(3.5rem, 10vw, 5rem);
+    }
+
+    .form-panel {
+        text-align: left;
+    }
+
+    footer {
+        grid-template-columns: 1fr 1fr;
+        padding: 2.5rem 3rem 2rem;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ── RESPONSIVE: MOBILE (≤ 480px) ────────────────────── */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 3rem 1.4rem 2.5rem;
+        text-align: center;
+    }
+
+    .brand h1 {
+        font-size: clamp(2.8rem, 12vw, 4rem);
+    }
+
+    .form-panel {
+        text-align: left;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        padding: 2.5rem 1.4rem 2rem;
+    }
+}

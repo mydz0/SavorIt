@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SavorIt – New Recipe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="add-recipe.css">
+  <link rel="stylesheet" href="accessibility.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo"><strong>Savor</strong><em>It</em></a>
+    <ul class="nav-center">
+      <li><a href="#">Explore</a></li>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">Cook</a></li>
+    </ul>
+    <a href="login.html" class="nav-right">My Kitchen</a>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="add-wrapper">
+    <h1>New Recipe</h1>
+
+    <div class="add-layout">
+
+      <!-- LEFT: Photo -->
+      <div class="photo-col">
+        <div class="photo-box" id="photoBox" onclick="document.getElementById('fileInput').click()">
+          <img id="previewImg" src="" alt="Preview">
+          <span class="add-icon" id="addIcon">+</span>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" onchange="previewPhoto(event)">
+        <button class="btn-dark" onclick="document.getElementById('fileInput').click()">Add photo</button>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="form-col">
+        <div class="form-group">
+          <label for="recipeName">Name</label>
+          <input type="text" id="recipeName" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="recipeBio">Bio</label>
+          <input type="text" id="recipeBio" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="recipeIngredients">Ingredients</label>
+          <input type="text" id="recipeIngredients" placeholder="">
+        </div>
+
+        <div class="form-group">
+          <label for="recipeSteps">Steps</label>
+          <textarea id="recipeSteps"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="recipeUrl">URL video reference</label>
+          <input type="text" id="recipeUrl" placeholder="">
+        </div>
+
+        <button class="btn-publish">Publish recipe</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div class="brand-title">Savor<em>It</em></div>
+      <p>Find your next favourite recipe.<br>Then share it with the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li>Discover recipes</li>
+        <li>Today's ingredient</li>
+        <li>Trending now</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>My Kitchen</h4>
+      <ul>
+        <li>Profile</li>
+        <li>Following</li>
+        <li>My cookbooks</li>
+        <li>Saved recipes</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function previewPhoto(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = document.getElementById('previewImg');
+        const icon = document.getElementById('addIcon');
+        img.src = e.target.result;
+        img.style.display = 'block';
+        icon.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+
+
+  <!-- ACCESSIBILITY PANEL -->
+  <button id="a11y-toggle" aria-label="Obrir opcions d'accessibilitat" aria-expanded="false" aria-controls="a11y-panel">Aa</button>
+  <div id="a11y-panel" role="dialog" aria-label="Opcions d'accessibilitat" aria-modal="false">
+    <h3>Accessibilitat</h3>
+    <div class="a11y-row">
+      <label for="a11y-bg">Color de fons</label>
+      <input type="color" id="a11y-bg" value="#F5F033" aria-label="Seleccionar color de fons">
+    </div>
+    <div class="a11y-row">
+      <label for="a11y-tx">Color de text</label>
+      <input type="color" id="a11y-tx" value="#4b4700" aria-label="Seleccionar color de text">
+    </div>
+    <button id="a11y-reset">Restaurar per defecte</button>
+  </div>
+  <script src="accessibility.js"></script>
+
+</body>
+</html>
