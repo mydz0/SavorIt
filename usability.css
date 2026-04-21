@@ -1,0 +1,156 @@
+/* ── ERROR MESSAGES (Heurística 9 – Missatges d'error clars) ─── */
+.field-error {
+    display: block;
+    font-size: 0.60rem;
+    color: #b30000;
+    margin-top: 4px;
+    min-height: 1em;
+    font-family: 'Space Mono', monospace;
+}
+
+.field--error input,
+.field--error select,
+.field--error textarea,
+.form-group--error input,
+.form-group--error textarea {
+    border-color: #b30000 !important;
+    background: #fff8f8 !important;
+}
+
+/* ── FORM FEEDBACK (Heurística 1 – Visibilitat de l'estat) ──── */
+.form-msg {
+    padding: 0.7rem 1rem;
+    font-size: 0.65rem;
+    font-family: 'Space Mono', monospace;
+    border-radius: 2px;
+    margin-top: 1rem;
+    display: none;
+}
+
+.form-msg.msg--error {
+    display: block;
+    background: #fff0f0;
+    border: 1px solid #b30000;
+    color: #b30000;
+}
+
+.form-msg.msg--success {
+    display: block;
+    background: #f2fff5;
+    border: 1px solid #1e7d3a;
+    color: #1e7d3a;
+}
+
+/* ── LOADING STATE (Heurística 1 – Visibilitat de l'estat) ──── */
+.btn-loading {
+    opacity: 0.55 !important;
+    cursor: not-allowed !important;
+    pointer-events: none;
+    position: relative;
+}
+
+.btn-loading::after {
+    content: ' …';
+}
+
+/* ── CANCEL BUTTON (Heurística 3 – Control i llibertat) ─────── */
+.btn-cancel {
+    display: inline-block;
+    margin-top: 0;
+    margin-left: 0.8rem;
+    padding: 0.65rem 1.4rem;
+    background: transparent;
+    color: var(--olive);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    border: 1.5px solid var(--olive);
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    vertical-align: middle;
+}
+
+.btn-cancel:hover {
+    opacity: 0.6;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 6px;
+}
+
+/* ── HAMBURGER BUTTON (NNGroup D – Coherència en tot el lloc) ── */
+.nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--olive);
+    padding: 4px 6px;
+    line-height: 1;
+    margin-left: auto;
+}
+
+.nav-hamburger:focus-visible {
+    outline: 3px solid var(--olive);
+    outline-offset: 2px;
+}
+
+/* ── MOBILE MENU DRAWER ──────────────────────────────────────── */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 48px;
+    left: 0;
+    right: 0;
+    background: var(--yellow);
+    border-bottom: 1px solid #c8b800;
+    z-index: 99;
+    padding: 1rem 1.5rem 1.4rem;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mobile-menu.open {
+    display: flex;
+}
+
+.mobile-menu a {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--olive);
+    text-decoration: none;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(75, 71, 0, 0.15);
+    display: block;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu a:hover {
+    opacity: 0.65;
+}
+
+@media (max-width: 480px) {
+    .nav-hamburger {
+        display: block;
+    }
+}
+
+/* add-recipe / perfil pages hide nav-center at 768px */
+@media (max-width: 768px) {
+    .nav-hamburger--tablet {
+        display: block;
+    }
+
+    .mobile-menu--tablet {
+        top: 48px;
+    }
+}

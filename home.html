@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="usability.css">
 </head>
 <body>
 
@@ -21,7 +22,16 @@
       <li><a href="add-recipe.html">Cook</a></li>
     </ul>
     <span class="nav-right"><a href="login.html">My Kitchen</a></span>
+    <button id="nav-hamburger" class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="#">Explore</a>
+    <a href="perfil.html">Collections</a>
+    <a href="add-recipe.html">Cook</a>
+    <a href="login.html">My Kitchen</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -93,7 +103,7 @@
           <span class="card-num">#04</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/55f5dde4-4fc7-4dff-9d6f-7377cb357fcb.png" alt="Bubble Potatoes Cookies"/>
+          <img src="img/55f5dde4-4fc7-4dff-9d6f-7377cb357fcb.png" alt="Bubble Potatoes Cookies" loading="lazy"/>
         </div>
         <div class="card-name">Bubble Potatoes<br>Cookies</div>
         <span class="card-arrow">↗</span>
@@ -106,7 +116,7 @@
           <span class="card-num">#05</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/595ce5fd-95ed-42c1-8619-a1bf53e60141.png" alt="Bacon Cheese Potatoes"/>
+          <img src="img/595ce5fd-95ed-42c1-8619-a1bf53e60141.png" alt="Bacon Cheese Potatoes" loading="lazy"/>
         </div>
         <div class="card-name">Bacon Cheese<br>Potatoes</div>
         <span class="card-arrow">↗</span>
@@ -119,7 +129,7 @@
           <span class="card-num">#06</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/a03172fc-1f64-40a8-add7-7cc429d2361a.png" alt="Garlic Potato Ring"/>
+          <img src="img/a03172fc-1f64-40a8-add7-7cc429d2361a.png" alt="Garlic Potato Ring" loading="lazy"/>
         </div>
         <div class="card-name">Garlic Potato<br>Ring</div>
         <span class="card-arrow">↗</span>
@@ -132,7 +142,7 @@
           <span class="card-num">#07</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/4739d8f3-3d43-4761-940b-9192cf7e5f6b.png" alt="Fried Shrimp Potatoes"/>
+          <img src="img/4739d8f3-3d43-4761-940b-9192cf7e5f6b.png" alt="Fried Shrimp Potatoes" loading="lazy"/>
         </div>
         <div class="card-name">Fried Shrimp<br>Potatoes</div>
         <span class="card-arrow">↗</span>
@@ -145,7 +155,7 @@
           <span class="card-num">#08</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/e936846a-af9a-49b5-97da-adf426141810.png" alt="Honey Cheese Potato"/>
+          <img src="img/e936846a-af9a-49b5-97da-adf426141810.png" alt="Honey Cheese Potato" loading="lazy"/>
         </div>
         <div class="card-name">Honey Cheese<br>Potato</div>
         <span class="card-arrow">↗</span>
@@ -158,7 +168,7 @@
           <span class="card-num">#09</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/3b6808af-fa30-404d-a5e2-e36d94edd0b0.png" alt="Gnocchi Potato Hotteok"/>
+          <img src="img/3b6808af-fa30-404d-a5e2-e36d94edd0b0.png" alt="Gnocchi Potato Hotteok" loading="lazy"/>
         </div>
         <div class="card-name">Gnocchi Potato<br>Hotteok</div>
         <span class="card-arrow">↗</span>
@@ -171,7 +181,7 @@
           <span class="card-num">#10</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/b2869424-5079-4672-ba66-6e43c7104611.png" alt="Potato Noodles"/>
+          <img src="img/b2869424-5079-4672-ba66-6e43c7104611.png" alt="Potato Noodles" loading="lazy"/>
         </div>
         <div class="card-name">Potato Noodles</div>
         <span class="card-arrow">↗</span>
@@ -184,7 +194,7 @@
           <span class="card-num">#11</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/e936846a-af9a-49b5-97da-adf426141810.png" alt="Potato Hash Brown"/>
+          <img src="img/e936846a-af9a-49b5-97da-adf426141810.png" alt="Potato Hash Brown" loading="lazy"/>
         </div>
         <div class="card-name">Hash Brown</div>
         <span class="card-arrow">↗</span>
@@ -197,7 +207,7 @@
           <span class="card-num">#12</span>
         </div>
         <div class="card-img-wrap">
-          <img src="img/e2342288-2609-4a88-8ae5-54839afb10b0.png" alt="Potato Corndog"/>
+          <img src="img/e2342288-2609-4a88-8ae5-54839afb10b0.png" alt="Potato Corndog" loading="lazy"/>
         </div>
         <div class="card-name">Potato Corndog</div>
         <span class="card-arrow">↗</span>
@@ -249,6 +259,7 @@
     <button id="a11y-reset">Restaurar per defecte</button>
   </div>
   <script src="accessibility.js"></script>
+  <script src="usability.js"></script>
 
 </body>
 </html>

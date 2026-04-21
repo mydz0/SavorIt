@@ -301,6 +301,14 @@ footer {
         display: none;
     }
 
+    .nav-right {
+        display: none;
+    }
+
+    .nav-hamburger--tablet {
+        display: block;
+    }
+
     .add-wrapper {
         padding: 36px 16px 50px;
         margin-top: 48px;
