@@ -7,8 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="add-recipe.css">
   <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="usability.css">
 </head>
 <body>
+
+  <!-- Checkbox oculto – trigger del menú mòbil (checkbox hack) -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
 
   <!-- NAV -->
   <nav>
@@ -19,12 +23,25 @@
       <li><a href="#">Cook</a></li>
     </ul>
     <a href="login.html" class="nav-right">My Kitchen</a>
+    <label for="menu-toggle" class="nav-hamburger nav-hamburger--tablet" aria-label="Open navigation menu">
+      <span class="hamburger-open">☰</span>
+      <span class="hamburger-close">✕</span>
+    </label>
   </nav>
+
+  <!-- MOBILE MENU – visible quan input#menu-toggle és :checked -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="home.html">Explore</a>
+    <a href="#">Collections</a>
+    <a href="add-recipe.html">Cook</a>
+    <a href="login.html">My Kitchen</a>
+  </div>
 
   <!-- MAIN -->
   <div class="add-wrapper">
     <h1>New Recipe</h1>
 
+    <form id="add-recipe-form" novalidate>
     <div class="add-layout">
 
       <!-- LEFT: Photo -->
@@ -34,40 +51,55 @@
           <span class="add-icon" id="addIcon">+</span>
         </div>
         <input type="file" id="fileInput" accept="image/*" onchange="previewPhoto(event)">
-        <button class="btn-dark" onclick="document.getElementById('fileInput').click()">Add photo</button>
+        <button type="button" class="btn-dark" onclick="document.getElementById('fileInput').click()">Add photo</button>
       </div>
 
       <!-- RIGHT: Form -->
       <div class="form-col">
         <div class="form-group">
-          <label for="recipeName">Name</label>
-          <input type="text" id="recipeName" placeholder="">
+          <label for="recipeName">Name <span aria-hidden="true" style="color:#b30000">*</span></label>
+          <input type="text" id="recipeName"
+                 placeholder=" "
+                 required>
+          <span class="field-error">Please enter the recipe name.</span>
         </div>
 
         <div class="form-group">
           <label for="recipeBio">Bio</label>
-          <input type="text" id="recipeBio" placeholder="">
+          <input type="text" id="recipeBio" placeholder=" ">
         </div>
 
         <div class="form-group">
-          <label for="recipeIngredients">Ingredients</label>
-          <input type="text" id="recipeIngredients" placeholder="">
+          <label for="recipeIngredients">Ingredients <span aria-hidden="true" style="color:#b30000">*</span></label>
+          <input type="text" id="recipeIngredients"
+                 placeholder=" "
+                 required>
+          <span class="field-error">Please list the ingredients.</span>
         </div>
 
         <div class="form-group">
-          <label for="recipeSteps">Steps</label>
-          <textarea id="recipeSteps"></textarea>
+          <label for="recipeSteps">Steps <span aria-hidden="true" style="color:#b30000">*</span></label>
+          <textarea id="recipeSteps"
+                    placeholder=" "
+                    required></textarea>
+          <span class="field-error">Please describe the preparation steps.</span>
         </div>
 
         <div class="form-group">
           <label for="recipeUrl">URL video reference</label>
-          <input type="text" id="recipeUrl" placeholder="">
+          <input type="url" id="recipeUrl"
+                 placeholder=" ">
+          <span class="field-error">Please enter a valid URL (https://…)</span>
         </div>
 
-        <button class="btn-publish">Publish recipe</button>
+        <div class="form-actions">
+          <button type="submit" class="btn-publish">Publish recipe</button>
+          <a href="home.html" class="btn-cancel">Cancel</a>
+        </div>
       </div>
 
     </div>
+    </form>
   </div>
 
   <!-- FOOTER -->

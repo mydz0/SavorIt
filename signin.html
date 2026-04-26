@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="signin.css">
   <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="usability.css">
 </head>
 <body>
 <div class="page-wrap">
@@ -24,57 +25,79 @@
     <div class="form-panel">
       <h2>Sign in</h2>
 
-      <div class="field">
-        <label for="si-id">Mobile number, username or email</label>
-        <input type="text" id="si-id" name="login-id" autocomplete="username"/>
-      </div>
-
-      <div class="field">
-        <label for="si-pw">Password</label>
-        <input type="password" id="si-pw" name="password" autocomplete="new-password"/>
-      </div>
-
-      <div class="field">
-        <label>Date of birth</label>
-        <div class="dob-row">
-          <div class="select-wrap">
-            <select name="dob-day">
-              <option value="">Day</option>
-              <script>for(let i=1;i<=31;i++) document.write(`<option>${i}</option>`);</script>
-            </select>
-          </div>
-          <div class="select-wrap">
-            <select name="dob-month">
-              <option value="">Month</option>
-              <option>January</option><option>February</option><option>March</option>
-              <option>April</option><option>May</option><option>June</option>
-              <option>July</option><option>August</option><option>September</option>
-              <option>October</option><option>November</option><option>December</option>
-            </select>
-          </div>
-          <div class="select-wrap">
-            <select name="dob-year" id="dob-year"></select>
-          </div>
+      <form id="signin-form">
+        <div class="field">
+          <label for="si-id">Mobile number, username or email</label>
+          <input type="text" id="si-id" name="login-id"
+                 autocomplete="username"
+                 placeholder=" "
+                 required/>
+          <span class="field-error">This field is required.</span>
         </div>
-      </div>
 
-      <div class="field">
-        <label for="si-name">Name</label>
-        <input type="text" id="si-name" name="name" autocomplete="name"/>
-      </div>
+        <div class="field">
+          <label for="si-pw">Password</label>
+          <input type="password" id="si-pw" name="password"
+                 autocomplete="new-password"
+                 placeholder=" "
+                 minlength="8"
+                 required/>
+          <span class="field-error">Password must be at least 8 characters.</span>
+        </div>
 
-      <div class="field">
-        <label for="si-user">Username</label>
-        <input type="text" id="si-user" name="username" autocomplete="off"/>
-      </div>
+        <div class="field">
+          <label>Date of birth</label>
+          <div class="dob-row">
+            <div class="select-wrap">
+              <select name="dob-day" required>
+                <option value="">Day</option>
+                <script>for(let i=1;i<=31;i++) document.write(`<option>${i}</option>`);</script>
+              </select>
+            </div>
+            <div class="select-wrap">
+              <select name="dob-month" required>
+                <option value="">Month</option>
+                <option>January</option><option>February</option><option>March</option>
+                <option>April</option><option>May</option><option>June</option>
+                <option>July</option><option>August</option><option>September</option>
+                <option>October</option><option>November</option><option>December</option>
+              </select>
+            </div>
+            <div class="select-wrap">
+              <select name="dob-year" id="dob-year" required></select>
+            </div>
+          </div>
+          <span class="field-error">Please complete your date of birth.</span>
+        </div>
 
-      <div class="legal">
-        <p>People who use our service may have uploaded your contact information to SavorIt.</p>
-        <p>By tapping Submit, you agree to create an account and to SavorIt's Terms. Learn how we collect, use and share your data in our <a href="#">Privacy Policy</a> and how we use cookies and similar technology in our <a href="#">Cookies Policy</a>.</p>
-        <p>The Privacy Policy describes the ways we can use the information we collect when you create an account. For example, we use this information to provide, personalise and improve our products, including ads.</p>
-      </div>
+        <div class="field">
+          <label for="si-name">Name</label>
+          <input type="text" id="si-name" name="name"
+                 autocomplete="name"
+                 placeholder=" "
+                 required/>
+          <span class="field-error">Please enter your name.</span>
+        </div>
 
-      <button class="btn-submit" type="button">Submit</button>
+        <div class="field">
+          <label for="si-user">Username</label>
+          <input type="text" id="si-user" name="username"
+                 autocomplete="off"
+                 placeholder=" "
+                 minlength="3"
+                 pattern="[a-zA-Z0-9_.]+"
+                 required/>
+          <span class="field-error">Min. 3 characters. Only letters, numbers, _ and .</span>
+        </div>
+
+        <div class="legal">
+          <p>People who use our service may have uploaded your contact information to SavorIt.</p>
+          <p>By tapping Submit, you agree to create an account and to SavorIt's Terms. Learn how we collect, use and share your data in our <a href="#">Privacy Policy</a> and how we use cookies and similar technology in our <a href="#">Cookies Policy</a>.</p>
+          <p>The Privacy Policy describes the ways we can use the information we collect when you create an account. For example, we use this information to provide, personalise and improve our products, including ads.</p>
+        </div>
+
+        <button class="btn-submit" type="submit">Submit</button>
+      </form>
 
       <div class="switch-auth">
         Already have an account?

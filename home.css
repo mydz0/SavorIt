@@ -352,6 +352,10 @@ footer {
         display: none;
     }
 
+    .nav-right {
+        display: none;
+    }
+
     .hero {
         margin-top: 44px;
         height: 80vw;

@@ -1,0 +1,179 @@
+/* H5 + H9 · Prevenció d'errors i missatges clars 
+   :user-invalid  → s'aplica després que l'usuari ha interactuat
+   :not(:placeholder-shown):invalid → fallback per a navegadors
+   que no suporten :user-invalid*/
+
+.field-error,
+.form-group .field-error {
+    display: none;
+    font-size: 0.60rem;
+    color: #b30000;
+    margin-top: 5px;
+    font-family: 'Space Mono', monospace;
+    line-height: 1.5;
+}
+
+/* Mostra el missatge quan el camp és invàlid i l'usuari ja ha interactuat */
+input:user-invalid ~ .field-error,
+textarea:user-invalid ~ .field-error,
+select:user-invalid ~ .field-error {
+    display: block;
+}
+
+/* Fallback: mostra quan té contingut i és invàlid (fora del focus) */
+input:not(:focus):not(:placeholder-shown):invalid ~ .field-error,
+textarea:not(:focus):not(:placeholder-shown):invalid ~ .field-error {
+    display: block;
+}
+
+/* Suport de :has() per a grups amb selects (ex. data de naixement) */
+.field:has(select:user-invalid) .field-error {
+    display: block;
+}
+
+/*Estil del camp invàlid */
+input:user-invalid,
+textarea:user-invalid,
+select:user-invalid {
+    border-color: #b30000 !important;
+    background: #fff8f8 !important;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid,
+textarea:not(:focus):not(:placeholder-shown):invalid {
+    border-color: #b30000 !important;
+    background: #fff8f8 !important;
+}
+
+/* Estil del camp vàlid (retroalimentació positiva) */
+input:not(:placeholder-shown):valid,
+textarea:not(:placeholder-shown):valid {
+    border-color: #1e7d3a !important;
+}
+
+/* H3 · Control i llibertat – Botó cancel·lar*/
+.btn-cancel {
+    display: inline-block;
+    margin-left: 0.8rem;
+    padding: 0.65rem 1.4rem;
+    background: transparent;
+    color: var(--olive);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    border: 1.5px solid var(--olive);
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s;
+    vertical-align: middle;
+}
+
+.btn-cancel:hover {
+    opacity: 0.6;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+/*  NNGroup D · Coherència – Menú hamburguesa (Checkbox Hack)
+   Tècnica: input[type=checkbox] ocult + label com a trigger.
+   Quan el checkbox és :checked, el menú mòbil es mostra amb
+   el selector de germans generals (~). */
+
+/* El checkbox és invisible però funcional */
+.menu-toggle-input {
+    display: none;
+}
+
+/* Botó hamburguesa: és un <label> vinculat al checkbox */
+.nav-hamburger {
+    display: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--olive);
+    padding: 4px 8px;
+    line-height: 1;
+    margin-left: auto;
+    user-select: none;
+    font-family: sans-serif;
+}
+
+.nav-hamburger:focus-visible {
+    outline: 3px solid var(--olive);
+    outline-offset: 2px;
+}
+
+/* Icones ☰ i ✕ dins el label */
+.hamburger-close {
+    display: none;
+}
+
+.hamburger-open {
+    display: inline;
+}
+
+/* Quan el checkbox és :checked canvia icona ☰  ✕ */
+.menu-toggle-input:checked ~ nav .hamburger-open {
+    display: none;
+}
+
+.menu-toggle-input:checked ~ nav .hamburger-close {
+    display: inline;
+}
+
+/* Drawer del menú mòbil  */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 48px;
+    left: 0;
+    right: 0;
+    background: var(--yellow);
+    border-bottom: 1px solid #c8b800;
+    z-index: 99;
+    padding: 1rem 1.5rem 1.4rem;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Quan el checkbox és :checked → mostra el menú */
+.menu-toggle-input:checked ~ .mobile-menu {
+    display: flex;
+}
+
+.mobile-menu a {
+    font-family: 'EB Garamond', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--olive);
+    text-decoration: none;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(75, 71, 0, 0.15);
+    display: block;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu a:hover {
+    opacity: 0.65;
+}
+
+/* Mostra el botó hamburguesa a mòbil */
+@media (max-width: 480px) {
+    .nav-hamburger {
+        display: block;
+    }
+}
+
+/* Mostra a tablet per a pàgines amb nav-center (add-recipe, edit-profile) */
+@media (max-width: 768px) {
+    .nav-hamburger--tablet {
+        display: block;
+    }
+}
