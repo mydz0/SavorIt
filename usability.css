@@ -1,14 +1,7 @@
-/* ═══════════════════════════════════════════════════════════
-   USABILITAT – CSS PUR
-   Sense JavaScript. Tot gestionat amb pseudo-classes CSS i
-   l'atribut HTML5 de validació natiu.
-   ═══════════════════════════════════════════════════════════ */
-
-/* ── H5 + H9 · Prevenció d'errors i missatges clars ─────────
+/* H5 + H9 · Prevenció d'errors i missatges clars 
    :user-invalid  → s'aplica després que l'usuari ha interactuat
    :not(:placeholder-shown):invalid → fallback per a navegadors
-   que no suporten :user-invalid
-   ─────────────────────────────────────────────────────────── */
+   que no suporten :user-invalid*/
 
 .field-error,
 .form-group .field-error {
@@ -38,7 +31,7 @@ textarea:not(:focus):not(:placeholder-shown):invalid ~ .field-error {
     display: block;
 }
 
-/* ── Estil del camp invàlid ─────────────────────────────── */
+/*Estil del camp invàlid */
 input:user-invalid,
 textarea:user-invalid,
 select:user-invalid {
@@ -58,7 +51,7 @@ textarea:not(:placeholder-shown):valid {
     border-color: #1e7d3a !important;
 }
 
-/* ── H3 · Control i llibertat – Botó cancel·lar ─────────── */
+/* H3 · Control i llibertat – Botó cancel·lar*/
 .btn-cancel {
     display: inline-block;
     margin-left: 0.8rem;
@@ -86,11 +79,10 @@ textarea:not(:placeholder-shown):valid {
     gap: 0;
 }
 
-/* ── NNGroup D · Coherència – Menú hamburguesa (Checkbox Hack)
+/*  NNGroup D · Coherència – Menú hamburguesa (Checkbox Hack)
    Tècnica: input[type=checkbox] ocult + label com a trigger.
    Quan el checkbox és :checked, el menú mòbil es mostra amb
-   el selector de germans generals (~).
-   ─────────────────────────────────────────────────────────── */
+   el selector de germans generals (~). */
 
 /* El checkbox és invisible però funcional */
 .menu-toggle-input {
@@ -124,7 +116,7 @@ textarea:not(:placeholder-shown):valid {
     display: inline;
 }
 
-/* Quan el checkbox és :checked → canvia icona ☰ → ✕ */
+/* Quan el checkbox és :checked canvia icona ☰  ✕ */
 .menu-toggle-input:checked ~ nav .hamburger-open {
     display: none;
 }
@@ -133,7 +125,7 @@ textarea:not(:placeholder-shown):valid {
     display: inline;
 }
 
-/* ── Drawer del menú mòbil ─────────────────────────────── */
+/* Drawer del menú mòbil  */
 .mobile-menu {
     display: none;
     position: fixed;
