@@ -25,21 +25,26 @@
     <div class="form-panel">
       <h2>Log in</h2>
 
-      <form id="login-form" novalidate>
+      <form id="login-form">
         <div class="field">
           <label for="login-id">Mobile number, username or email</label>
-          <input type="text" id="login-id" name="login-id" autocomplete="username" required/>
-          <span class="field-error" id="login-id-error" role="alert"></span>
+          <input type="text" id="login-id" name="login-id"
+                 autocomplete="username"
+                 placeholder=" "
+                 required/>
+          <span class="field-error">This field is required.</span>
         </div>
 
         <div class="field">
           <label for="login-pw">Password</label>
-          <input type="password" id="login-pw" name="password" autocomplete="current-password" required/>
+          <input type="password" id="login-pw" name="password"
+                 autocomplete="current-password"
+                 placeholder=" "
+                 minlength="6"
+                 required/>
           <a href="#" class="forgot">Forgot password?</a>
-          <span class="field-error" id="login-pw-error" role="alert"></span>
+          <span class="field-error">Password must be at least 6 characters.</span>
         </div>
-
-        <div class="form-msg" id="login-msg" role="alert"></div>
 
         <button class="btn-submit" type="submit">Log in</button>
       </form>
@@ -96,7 +101,6 @@
     <button id="a11y-reset">Restaurar per defecte</button>
   </div>
   <script src="accessibility.js"></script>
-  <script src="usability.js"></script>
 
 </body>
 </html>

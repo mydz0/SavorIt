@@ -1,62 +1,66 @@
-/* ── ERROR MESSAGES (Heurística 9 – Missatges d'error clars) ─── */
-.field-error {
-    display: block;
+/* ═══════════════════════════════════════════════════════════
+   USABILITAT – CSS PUR
+   Sense JavaScript. Tot gestionat amb pseudo-classes CSS i
+   l'atribut HTML5 de validació natiu.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── H5 + H9 · Prevenció d'errors i missatges clars ─────────
+   :user-invalid  → s'aplica després que l'usuari ha interactuat
+   :not(:placeholder-shown):invalid → fallback per a navegadors
+   que no suporten :user-invalid
+   ─────────────────────────────────────────────────────────── */
+
+.field-error,
+.form-group .field-error {
+    display: none;
     font-size: 0.60rem;
     color: #b30000;
-    margin-top: 4px;
-    min-height: 1em;
+    margin-top: 5px;
     font-family: 'Space Mono', monospace;
+    line-height: 1.5;
 }
 
-.field--error input,
-.field--error select,
-.field--error textarea,
-.form-group--error input,
-.form-group--error textarea {
+/* Mostra el missatge quan el camp és invàlid i l'usuari ja ha interactuat */
+input:user-invalid ~ .field-error,
+textarea:user-invalid ~ .field-error,
+select:user-invalid ~ .field-error {
+    display: block;
+}
+
+/* Fallback: mostra quan té contingut i és invàlid (fora del focus) */
+input:not(:focus):not(:placeholder-shown):invalid ~ .field-error,
+textarea:not(:focus):not(:placeholder-shown):invalid ~ .field-error {
+    display: block;
+}
+
+/* Suport de :has() per a grups amb selects (ex. data de naixement) */
+.field:has(select:user-invalid) .field-error {
+    display: block;
+}
+
+/* ── Estil del camp invàlid ─────────────────────────────── */
+input:user-invalid,
+textarea:user-invalid,
+select:user-invalid {
     border-color: #b30000 !important;
     background: #fff8f8 !important;
 }
 
-/* ── FORM FEEDBACK (Heurística 1 – Visibilitat de l'estat) ──── */
-.form-msg {
-    padding: 0.7rem 1rem;
-    font-size: 0.65rem;
-    font-family: 'Space Mono', monospace;
-    border-radius: 2px;
-    margin-top: 1rem;
-    display: none;
+input:not(:focus):not(:placeholder-shown):invalid,
+textarea:not(:focus):not(:placeholder-shown):invalid {
+    border-color: #b30000 !important;
+    background: #fff8f8 !important;
 }
 
-.form-msg.msg--error {
-    display: block;
-    background: #fff0f0;
-    border: 1px solid #b30000;
-    color: #b30000;
+/* Estil del camp vàlid (retroalimentació positiva) */
+input:not(:placeholder-shown):valid,
+textarea:not(:placeholder-shown):valid {
+    border-color: #1e7d3a !important;
 }
 
-.form-msg.msg--success {
-    display: block;
-    background: #f2fff5;
-    border: 1px solid #1e7d3a;
-    color: #1e7d3a;
-}
-
-/* ── LOADING STATE (Heurística 1 – Visibilitat de l'estat) ──── */
-.btn-loading {
-    opacity: 0.55 !important;
-    cursor: not-allowed !important;
-    pointer-events: none;
-    position: relative;
-}
-
-.btn-loading::after {
-    content: ' …';
-}
-
-/* ── CANCEL BUTTON (Heurística 3 – Control i llibertat) ─────── */
+/* ── H3 · Control i llibertat – Botó cancel·lar ─────────── */
 .btn-cancel {
     display: inline-block;
-    margin-top: 0;
     margin-left: 0.8rem;
     padding: 0.65rem 1.4rem;
     background: transparent;
@@ -77,22 +81,33 @@
 .form-actions {
     display: flex;
     align-items: center;
+    margin-top: 6px;
     flex-wrap: wrap;
     gap: 0;
-    margin-top: 6px;
 }
 
-/* ── HAMBURGER BUTTON (NNGroup D – Coherència en tot el lloc) ── */
+/* ── NNGroup D · Coherència – Menú hamburguesa (Checkbox Hack)
+   Tècnica: input[type=checkbox] ocult + label com a trigger.
+   Quan el checkbox és :checked, el menú mòbil es mostra amb
+   el selector de germans generals (~).
+   ─────────────────────────────────────────────────────────── */
+
+/* El checkbox és invisible però funcional */
+.menu-toggle-input {
+    display: none;
+}
+
+/* Botó hamburguesa: és un <label> vinculat al checkbox */
 .nav-hamburger {
     display: none;
-    background: none;
-    border: none;
     font-size: 1.4rem;
     cursor: pointer;
     color: var(--olive);
-    padding: 4px 6px;
+    padding: 4px 8px;
     line-height: 1;
     margin-left: auto;
+    user-select: none;
+    font-family: sans-serif;
 }
 
 .nav-hamburger:focus-visible {
@@ -100,7 +115,25 @@
     outline-offset: 2px;
 }
 
-/* ── MOBILE MENU DRAWER ──────────────────────────────────────── */
+/* Icones ☰ i ✕ dins el label */
+.hamburger-close {
+    display: none;
+}
+
+.hamburger-open {
+    display: inline;
+}
+
+/* Quan el checkbox és :checked → canvia icona ☰ → ✕ */
+.menu-toggle-input:checked ~ nav .hamburger-open {
+    display: none;
+}
+
+.menu-toggle-input:checked ~ nav .hamburger-close {
+    display: inline;
+}
+
+/* ── Drawer del menú mòbil ─────────────────────────────── */
 .mobile-menu {
     display: none;
     position: fixed;
@@ -115,7 +148,8 @@
     gap: 0;
 }
 
-.mobile-menu.open {
+/* Quan el checkbox és :checked → mostra el menú */
+.menu-toggle-input:checked ~ .mobile-menu {
     display: flex;
 }
 
@@ -138,19 +172,16 @@
     opacity: 0.65;
 }
 
+/* Mostra el botó hamburguesa a mòbil */
 @media (max-width: 480px) {
     .nav-hamburger {
         display: block;
     }
 }
 
-/* add-recipe / perfil pages hide nav-center at 768px */
+/* Mostra a tablet per a pàgines amb nav-center (add-recipe, edit-profile) */
 @media (max-width: 768px) {
     .nav-hamburger--tablet {
         display: block;
-    }
-
-    .mobile-menu--tablet {
-        top: 48px;
     }
 }

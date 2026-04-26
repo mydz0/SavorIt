@@ -11,6 +11,9 @@
 </head>
 <body>
 
+  <!-- Checkbox oculto – trigger del menú mòbil (checkbox hack) -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-input">
+
   <!-- NAV -->
   <nav>
     <span class="nav-logo"><strong>Savor</strong><em>It</em></span>
@@ -22,11 +25,14 @@
       <li><a href="add-recipe.html">Cook</a></li>
     </ul>
     <span class="nav-right"><a href="login.html">My Kitchen</a></span>
-    <button id="nav-hamburger" class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+    <label for="menu-toggle" class="nav-hamburger" aria-label="Open navigation menu">
+      <span class="hamburger-open">☰</span>
+      <span class="hamburger-close">✕</span>
+    </label>
   </nav>
 
-  <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <!-- MOBILE MENU – visible quan input#menu-toggle és :checked -->
+  <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
     <a href="#">Explore</a>
     <a href="perfil.html">Collections</a>
     <a href="add-recipe.html">Cook</a>
@@ -259,7 +265,6 @@
     <button id="a11y-reset">Restaurar per defecte</button>
   </div>
   <script src="accessibility.js"></script>
-  <script src="usability.js"></script>
 
 </body>
 </html>
